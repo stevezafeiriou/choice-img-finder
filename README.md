@@ -1,6 +1,6 @@
 # Choice Installation: Image Finder (React.js App)
 
-![Choice Cover](./images/cover.png)
+![Choice Cover](./images/homepage.png)
 
 ## Table of Contents
 
