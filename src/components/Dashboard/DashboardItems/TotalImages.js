@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAllImages } from "../../../services/api";
 import { Container, Title, Stat, StatWrapper } from "../TotalImagesElements";
 import { Bar } from "react-chartjs-2";
+import Chart from "chart.js/auto";
 
 const TotalImages = () => {
 	const [totalImages, setTotalImages] = useState(0);
