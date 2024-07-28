@@ -1,6 +1,3 @@
-Sure, here is the updated `README.md` in markdown format:
-
-````markdown
 # Choice Installation: Image Finder (React.js App)
 
 ## Table of Contents
@@ -32,7 +29,6 @@ git clone https://github.com/saphirelabs/choice-img-finder.git
 cd choice-img-finder
 npm install
 ```
-````
 
 ## Create `.env` file
 
