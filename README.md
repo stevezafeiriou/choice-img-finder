@@ -1,4 +1,4 @@
-Here's the updated `README.md` based on the changes we made:
+Sure, here is the updated `README.md` in markdown format:
 
 ````markdown
 # Choice Installation: Image Finder (React.js App)
@@ -41,6 +41,7 @@ Create a `.env` file in the root directory of your project and add the following
 ```env
 REACT_APP_API_BASE_URL=
 REACT_APP_AUTH_API_BASE_URL=
+REACT_APP_LOGO_URL=
 ```
 
 These environment variables define the base URLs for the backend API. Ensure these are correctly set to avoid exposing sensitive data.
