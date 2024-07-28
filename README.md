@@ -1,5 +1,7 @@
 # Choice Installation: Image Finder (React.js App)
 
+![Choice Cover](./images/cover.png)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -11,6 +13,7 @@
   - [ImageCard](#imagecard)
   - [FindGenerationsById](#findgenerationsbyid)
   - [ChangeLog](#changelog)
+  - [Dashboard](#dashboard)
 - [Styled Components](#styled-components)
 - [Configuration](#configuration)
 - [Global Styles](#global-styles)
@@ -66,6 +69,8 @@ Key Features:
 
 ### SubscriptionForm
 
+![Image Finder](./images/subscribe.png)
+
 `SubscriptionForm` is used to collect the user's email for subscription purposes.
 
 Key Features:
@@ -74,6 +79,8 @@ Key Features:
 - Calls a function to handle the subscription process on form submission.
 
 ### ImageCard
+
+![Image Finder](./images/img_finder_by_id.png)
 
 `ImageCard` displays the image data and provides options to save or print the image.
 
@@ -85,6 +92,8 @@ Key Features:
 
 ### FindGenerationsById
 
+![Image Finder](./images/img_finder.png)
+
 `FindGenerationsById` allows users to search for images by UUID or select from recent unvalidated images.
 
 Key Features:
@@ -95,6 +104,8 @@ Key Features:
 
 ### ChangeLog
 
+![Image Finder](./images/change_log.png)
+
 `ChangeLog` displays the firmware changelog for the "Choice" interactive sculpture.
 
 Key Features:
@@ -102,6 +113,35 @@ Key Features:
 - Fetches and displays the firmware changelog from the backend API.
 - Sorts the changelog entries by date in descending order.
 - Shows version numbers and descriptions of changes.
+
+### Dashboard
+
+`Dashboard` provides an overview and management tools for various aspects of the "Choice" interactive sculpture system.
+
+Key Features:
+
+- **Overview Cards:** Provides a quick glance at the total number of images, devices, and subscribers.
+
+![Image Finder](./images/admin_dash_a.png)
+
+- **Firmware Information:** Displays the current firmware version and its changelog. Includes tools to upload a new firmware version and its changelog.
+
+![Image Finder](./images/admin_dash_b.png)
+
+- **Subscriber Management:** Lists all subscribers and provides tools to manage subscriptions.
+
+![Image Finder](./images/admin_dash_b.png)
+
+- **Device Management:** View and manage registered devices. Includes tools to register new devices or update existing ones.
+- **Image Data Management:** Provides a detailed list of images that can be validated or deleted as needed.
+
+#### Instructions
+
+- **Overview Cards:** This section provides a quick glance at the total number of images, devices, and subscribers. Use these cards to get an overview of the current status.
+- **Firmware Information:** Here, you can view the current firmware version and its changelog. Use the "Update Firmware" card to upload a new firmware version and its changelog.
+- **Subscriber Management:** This section includes the list of all subscribers and tools to manage subscriptions. Use the "Subscription Manager" to add or update subscriptions.
+- **Device Management:** View and manage registered devices. Use the "Update Registered Devices" card to add new devices or update existing ones.
+- **Image Data Management:** View and manage all image data. This section provides a detailed list of images that can be validated or deleted as needed.
 
 ## Styled Components
 
@@ -120,6 +160,7 @@ The `dbEndpoint` for the backend API is now defined in the `.env` file:
 ```env
 REACT_APP_API_BASE_URL=
 REACT_APP_AUTH_API_BASE_URL=
+REACT_APP_LOGO_URL=
 ```
 
 Ensure these environment variables are set correctly to point to your backend API.
