@@ -8,6 +8,7 @@ import HomePageRender from "./pages/HomePageRender";
 import ImagePageRender from "./pages/ImagePageRender";
 import ChangeLogRender from "./pages/ChangeLogRender";
 import ProtectedDashboardRender from "./pages/ProtectedDashboardRender";
+import CollectorPageRender from "./pages/CollectorPageRender";
 
 const App = () => {
 	return (
@@ -26,6 +27,7 @@ const App = () => {
 						<Route path="/finder" element={<ImagePageRender />} exact />
 						<Route path="/change-log" element={<ChangeLogRender />} />
 						<Route path="/dashboard" element={<ProtectedDashboardRender />} />
+						<Route path="/collector/:email" element={<CollectorPageRender />} />
 					</Routes>
 				</BrowserRouter>
 			</AuthProvider>

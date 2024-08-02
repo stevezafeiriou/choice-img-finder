@@ -64,7 +64,7 @@ export const TimelineItem = styled.div`
 export const Dot = styled.div`
 	width: 10px;
 	height: 10px;
-	background-color: ${(props) => (props.active === "true" ? "yellow" : "#ddd")};
+	background-color: ${(props) => (props.active === "true" ? "orange" : "#ddd")};
 	border-radius: 50%;
 	position: absolute;
 	left: 16px;
@@ -98,7 +98,7 @@ export const TimelineDate = styled.div`
 
 export const TimelineVersion = styled.div`
 	font-size: 0.758em;
-	color: yellow;
+	color: orange;
 	font-weight: 600;
 	margin-bottom: 10px;
 `;

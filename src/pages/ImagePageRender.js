@@ -2,6 +2,7 @@ import React from "react";
 import ImagePage from "../components/ImagePage";
 import Header from "../components/Header";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { motion } from "framer-motion";
 
 const ImagePageRender = () => {
 	return (
@@ -14,7 +15,14 @@ const ImagePageRender = () => {
 				/>
 			</Helmet>
 			<Header />
-			<ImagePage />
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				exit={{ opacity: 0 }}
+				transition={{ duration: 0.5 }}
+			>
+				<ImagePage />
+			</motion.div>
 		</HelmetProvider>
 	);
 };

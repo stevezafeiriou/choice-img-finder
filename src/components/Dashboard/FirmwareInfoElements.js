@@ -38,7 +38,7 @@ export const Stat = styled.div`
 	font-size: 2em;
 	background-color: transparent;
 	text-align: center;
-	color: yellow;
+	color: orange;
 	margin: 10px;
 
 	@media (max-width: 768px) {
@@ -58,7 +58,7 @@ export const Stat = styled.div`
 		margin-top: 10px;
 		transition: 0.25s all ease-in-out;
 		&:hover {
-			color: yellow;
+			color: orange;
 			text-decoration: underline;
 		}
 	}

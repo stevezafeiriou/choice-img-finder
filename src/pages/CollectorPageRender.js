@@ -1,17 +1,17 @@
 import React from "react";
-import Home from "../components/Home";
-import Header from "../components/Header";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { motion } from "framer-motion";
+import Header from "../components/Header";
+import Collector from "../components/Collector";
 
-const HomePageRender = () => {
+const CollectorPageRender = () => {
 	return (
 		<HelmetProvider>
 			<Helmet>
-				<title>Introduction | Choice</title>
+				<title>Collector Page | Choice</title>
 				<meta
 					name="description"
-					content="Information about Choice - interactive sculpture. Read about the Artistic Research, Documentation & more."
+					content="Collector page showing collected images."
 				/>
 			</Helmet>
 			<Header />
@@ -21,10 +21,10 @@ const HomePageRender = () => {
 				exit={{ opacity: 0 }}
 				transition={{ duration: 0.5 }}
 			>
-				<Home />
+				<Collector />
 			</motion.div>
 		</HelmetProvider>
 	);
 };
 
-export default HomePageRender;
+export default CollectorPageRender;

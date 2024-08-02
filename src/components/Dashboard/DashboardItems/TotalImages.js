@@ -31,7 +31,7 @@ const TotalImages = () => {
 			{
 				label: "Images Count",
 				data: [totalImages, totalValidated, totalUnvalidated],
-				backgroundColor: ["yellow", "yellow", "yellow"],
+				backgroundColor: ["orange", "orange", "orange"],
 				// borderColor: ["#3e95cd", "#8e5ea2", "#3cba9f"],
 				borderWidth: 0,
 			},

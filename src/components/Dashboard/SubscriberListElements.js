@@ -86,3 +86,30 @@ export const InnerTableCell = styled.td`
 	border: 1px solid #3a3a3a;
 	color: #ddd;
 `;
+
+export const Button = styled.button`
+	padding: 5px;
+	margin: 10px;
+	font-size: 0.875rem;
+	cursor: pointer;
+	transition: all 0.25s ease-in-out;
+	border: 1px solid #dddddd;
+	background-color: #171616;
+	color: #dddddd;
+	width: 100px;
+
+	&:hover {
+		background-color: ${(props) => (props.disabled ? "#171616" : "#2b2e2c")};
+		color: ${(props) => (props.disabled ? "white" : "white")};
+		border: ${(props) =>
+			props.disabled ? "1px solid #2b2e2c" : "1px solid #171616"};
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		background-color: transparent;
+		color: #dddddd;
+		border: 1px solid #dddddd;
+	}
+`;

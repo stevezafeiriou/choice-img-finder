@@ -199,6 +199,10 @@ export const DocumentationContainer = styled.div`
 
 	a {
 		color: #dc4c99;
+		transition: all 0.2s ease-in-out;
+		&:hover {
+			color: #fff;
+		}
 	}
 
 	p {

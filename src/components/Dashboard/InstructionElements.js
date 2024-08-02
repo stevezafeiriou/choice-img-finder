@@ -22,6 +22,6 @@ export const InstructionText = styled.p`
 	text-align: justify;
 	strong {
 		font-weight: 500;
-		color: yellow;
+		color: orange;
 	}
 `;

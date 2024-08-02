@@ -130,7 +130,7 @@ Key Features:
 
 - **Subscriber Management:** Lists all subscribers and provides tools to manage subscriptions.
 
-![Image Finder](./images/admin_dash_b.png)
+![Image Finder](./images/admin_dash_c.png)
 
 - **Device Management:** View and manage registered devices. Includes tools to register new devices or update existing ones.
 - **Image Data Management:** Provides a detailed list of images that can be validated or deleted as needed.

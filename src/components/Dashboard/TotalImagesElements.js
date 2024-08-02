@@ -35,7 +35,7 @@ export const Stat = styled.div`
 	font-size: 2em;
 	background-color: transparent;
 	text-align: center;
-	color: yellow;
+	color: orange;
 	margin: 10px;
 
 	@media (max-width: 768px) {

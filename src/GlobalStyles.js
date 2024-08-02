@@ -37,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     ::-webkit-scrollbar-thumb {
-        background-color: yellow;
+        background-color: orange;
         border-radius: 0;
     }
 
@@ -47,5 +47,27 @@ export const GlobalStyle = createGlobalStyle`
 
     /* Custom scrollbar styles for Firefox */
     scrollbar-width: thin;
-    scrollbar-color: yellow transparent;
+    scrollbar-color: orange transparent;
+
+    /* Custom selection styles */
+    ::selection {
+        background-color: orange !important;
+        color: black !important; /* Ensure the text is readable on a orange background */
+    }
+
+    ::-moz-selection {
+        background-color: orange !important;
+        color: black !important; /* Ensure the text is readable on a orange background */
+    }
+
+    /* Higher specificity to ensure selection color applies */
+    body::selection, body *::selection {
+        background-color: orange !important;
+        color: black !important; /* Ensure the text is readable on a orange background */
+    }
+
+    body::-moz-selection, body *::-moz-selection {
+        background-color: orange !important;
+        color: black !important; /* Ensure the text is readable on a orange background */
+    }
 `;

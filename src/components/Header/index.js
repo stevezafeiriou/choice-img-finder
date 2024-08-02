@@ -1,23 +1,29 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { AiOutlineEnter } from "react-icons/ai";
+import { motion, AnimatePresence } from "framer-motion";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
 	HeaderNav,
 	Logo,
 	MobileIcon,
 	NavMenu,
 	NavLink,
+	EmailInputContainer,
+	EmailInputWrapper,
 } from "./HeaderElements";
 import { useAuth } from "../../context/AuthContext";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
 	const { auth, logout, reloadInformation } = useAuth();
-
 	const location = useLocation();
+	const navigate = useNavigate();
 	const [isOpen, setIsOpen] = useState(false);
+	const [showInput, setShowInput] = useState(false);
+	const [email, setEmail] = useState("");
 
 	let logoText = "Choice / Introduction";
 
@@ -27,17 +33,9 @@ const Header = () => {
 		logoText = "Choice / Change Log";
 	} else if (location.pathname === "/dashboard") {
 		logoText = "Choice / [Admin] Dashboard";
+	} else if (location.pathname.startsWith("/collector/")) {
+		logoText = `Choice / Collector`;
 	}
-
-	const handleExternalLinkClick = (event) => {
-		event.preventDefault();
-		const userConfirmed = window.confirm(
-			"You will be redirected to Artist's Instagram, follow him. It's free:)"
-		);
-		if (userConfirmed) {
-			window.location.href = event.currentTarget.href;
-		}
-	};
 
 	const toggleMenu = () => {
 		setIsOpen(!isOpen);
@@ -48,61 +46,128 @@ const Header = () => {
 		toast.success("You Logged out Successfully.");
 	};
 
+	const handleCollectorClick = () => {
+		setShowInput(!showInput);
+	};
+
+	const handleEmailChange = (event) => {
+		setEmail(event.target.value);
+	};
+
+	const handleEmailSubmit = (event) => {
+		event.preventDefault();
+		if (validateEmail(email)) {
+			navigate(`/collector/${email}`);
+			setShowInput(false);
+			window.location.reload();
+		} else {
+			toast.error("Invalid email address");
+		}
+	};
+
+	const handleKeyPress = (event) => {
+		if (event.key === "Enter") {
+			handleEmailSubmit(event);
+		}
+	};
+
+	const validateEmail = (email) => {
+		const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		return re.test(email);
+	};
+
 	return (
-		<HeaderNav>
-			<Logo>
-				<a href="/">{logoText}</a>
-			</Logo>
-			<MobileIcon onClick={toggleMenu}>
-				{isOpen ? <IoClose /> : <FaBars />}
-			</MobileIcon>
-			<NavMenu isOpen={isOpen}>
-				<ul>
-					<li>
-						<NavLink
-							href="/"
-							className={location.pathname === "/" ? "active" : ""}
-						>
-							Introduction
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							href="/finder"
-							className={location.pathname === "/finder" ? "active" : ""}
-						>
-							Image Finder
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							href="/change-log"
-							className={location.pathname === "/change-log" ? "active" : ""}
-						>
-							Change Log
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							href="https://instagram.com/superkid.me"
-							onClick={handleExternalLinkClick}
-						>
-							Instagram
-						</NavLink>
-					</li>
-					{auth !== null ? (
-						<>
-							<li>
-								<button onClick={reloadInformation}>Refresh</button>
-							</li>
-							<li>
-								<button onClick={handleLogout}>Logout</button>
-							</li>
-						</>
-					) : null}
-				</ul>
-			</NavMenu>
-		</HeaderNav>
+		<>
+			<HeaderNav>
+				<Logo>
+					<a href="/">{logoText}</a>
+				</Logo>
+				<MobileIcon onClick={toggleMenu}>
+					{isOpen ? <IoClose /> : <FaBars />}
+				</MobileIcon>
+				<NavMenu isOpen={isOpen}>
+					<ul>
+						<li>
+							<NavLink
+								href="/"
+								className={location.pathname === "/" ? "active" : ""}
+							>
+								Introduction
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								href="/finder"
+								className={location.pathname === "/finder" ? "active" : ""}
+							>
+								Image Finder
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								href="/change-log"
+								className={location.pathname === "/change-log" ? "active" : ""}
+							>
+								Change Log
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								href="#"
+								onClick={handleCollectorClick}
+								className={
+									location.pathname.startsWith("/collector/") ? "active" : ""
+								}
+							>
+								Collector
+							</NavLink>
+						</li>
+						<li>
+							<NavLink href="https://stevezafeiriou.com/links/" target="_blank">
+								Arist Info
+							</NavLink>
+						</li>
+						{auth !== null ? (
+							<>
+								<li>
+									<button onClick={reloadInformation}>Refresh</button>
+								</li>
+								<li>
+									<button onClick={handleLogout}>Logout</button>
+								</li>
+							</>
+						) : null}
+					</ul>
+					<AnimatePresence>
+						{showInput && (
+							<EmailInputContainer
+								initial={{ opacity: 0, y: -10 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: -10 }}
+							>
+								<EmailInputWrapper>
+									<form onSubmit={handleEmailSubmit}>
+										<input
+											type="email"
+											value={email}
+											onChange={handleEmailChange}
+											onKeyPress={handleKeyPress}
+											placeholder="Enter email"
+										/>
+										<button
+											type="submit"
+											style={{ backgroundColor: "transparent", border: "none" }}
+										>
+											<AiOutlineEnter className="enter" />
+										</button>
+									</form>
+								</EmailInputWrapper>
+							</EmailInputContainer>
+						)}
+					</AnimatePresence>
+				</NavMenu>
+			</HeaderNav>
+		</>
 	);
 };
 

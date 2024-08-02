@@ -4,6 +4,7 @@ import Dashboard from "../components/Dashboard";
 import Header from "../components/Header";
 import Login from "../components/Login";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { motion } from "framer-motion";
 
 const ProtectedDashboardRender = () => {
 	const { auth } = useAuth();
@@ -16,7 +17,14 @@ const ProtectedDashboardRender = () => {
 					<meta name="robots" content="noindex, nofollow" />
 				</Helmet>
 				<Header />
-				<Login />
+				<motion.div
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+					transition={{ duration: 0.5 }}
+				>
+					<Login />
+				</motion.div>
 			</HelmetProvider>
 		);
 	}
@@ -28,7 +36,14 @@ const ProtectedDashboardRender = () => {
 				<meta name="robots" content="noindex, nofollow" />
 			</Helmet>
 			<Header />
-			<Dashboard />
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				exit={{ opacity: 0 }}
+				transition={{ duration: 0.5 }}
+			>
+				<Dashboard />
+			</motion.div>
 		</HelmetProvider>
 	);
 };

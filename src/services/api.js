@@ -2,7 +2,6 @@ import axios from "axios";
 
 const apiBaseURL = process.env.REACT_APP_API_BASE_URL;
 const authApiBaseURL = process.env.REACT_APP_AUTH_API_BASE_URL;
-const logoImageURL = process.env.REACT_APP_LOGO_URL;
 
 const api = axios.create({
 	baseURL: apiBaseURL,
@@ -14,7 +13,39 @@ const authApi = axios.create({
 	withCredentials: true,
 });
 
-// Add this function to the bottom of your api.js file
+export const updateDonationStatus = async (email, token) => {
+	const url = `${apiBaseURL}/subscribe/donation/update`;
+
+	const config = {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	};
+
+	try {
+		const response = await api.post(url, { email }, config);
+		return response.data;
+	} catch (error) {
+		console.error("API Error:", error);
+		throw error.response ? error.response.data : error;
+	}
+};
+
+// Fetch collected images for a user
+export const getCollectedImages = async (email) => {
+	try {
+		const url = `${apiBaseURL}/collected`;
+		const response = await api.get(url, {
+			params: { email },
+		});
+
+		return response.data;
+	} catch (error) {
+		throw error.response ? error.response.data : error;
+	}
+};
+
+// Get Sub List
 export const getSubscriberList = async (token) => {
 	const url = `${apiBaseURL}/subscribe/list`;
 
@@ -145,4 +176,5 @@ export const updateSubscription = (data) => api.put("/subscribe", data);
 export const getFirmwareData = () => api.get("/firmware");
 export const getFirmwareChangelog = () => api.get("/firmware/changelog");
 export const getTotalDevices = () => api.get("/devices/total");
-export const logoImage = logoImageURL;
+export const logoImage = process.env.REACT_APP_LOGO_URL;
+export const collectionCover = process.env.REACT_APP_COVER_URL;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const HeaderNav = styled.div`
 	display: flex;
@@ -68,7 +69,7 @@ export const Menu = styled.div`
 				border: none;
 				margin-left: 10px;
 				text-decoration: underline;
-				color: yellow;
+				color: orange;
 				transition: 0.25s all ease-in-out;
 				cursor: pointer;
 				&:hover {
@@ -129,7 +130,7 @@ export const NavMenu = styled(Menu)`
 				button {
 					font-size: 0.758rem;
 					padding: 10px 0;
-					color: yellow;
+					color: orange;
 					margin-left: 60px;
 					text-align: left;
 					&:hover {
@@ -144,6 +145,56 @@ export const NavMenu = styled(Menu)`
 export const NavLink = styled.a`
 	color: #ddd;
 	&.active {
-		color: yellow;
+		color: orange;
+	}
+`;
+
+export const EmailInputContainer = styled(motion.div)`
+	width: 100%;
+	background: transparent;
+	position: fixed;
+	top: 60px;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 998;
+	padding: 10px 0;
+
+	@media (max-width: 768px) {
+		position: relative;
+		top: 0;
+	}
+`;
+
+export const EmailInputWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.758rem;
+	form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		input {
+			padding: 15px 15px;
+			width: 200px;
+			border: none;
+			background-color: #2b2d2c;
+			color: #ddd;
+			border-bottom: 1px solid #fff;
+		}
+
+		.enter {
+			font-size: 2.5rem;
+			padding: 10px;
+			color: #ddd;
+			cursor: pointer;
+			transition: all 0.2s ease-in-out;
+
+			&:hover {
+				color: orange;
+			}
+		}
 	}
 `;

@@ -12,7 +12,7 @@ const Documentation = ({ handleDocs }) => {
 			<h1>Choice: Interactive Sculpture (ESP32S3 Microcontroller)</h1>
 			<h2>Overview</h2>
 			<p>
-				<strong>Firmware Version: v1.0.0</strong>
+				<strong>Firmware Version: v1.0.1</strong>
 			</p>
 			<p>
 				Choice is an interactive sculpture based on an ESP32-S3 microcontroller.

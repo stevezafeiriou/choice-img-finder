@@ -24,7 +24,7 @@ export const Logo = styled.div`
 		font-size: 0.857rem;
 		padding: 10px;
 		text-decoration: none;
-		color: yellow;
+		color: orange;
 		transition: 0.25s all ease-in-out;
 		&:hover {
 			background-color: #2b2e2c;
@@ -35,7 +35,7 @@ export const Logo = styled.div`
 		font-size: 0.857rem;
 		padding: 10px;
 		text-decoration: none;
-		color: yellow;
+		color: orange;
 		transition: 0.25s all ease-in-out;
 	}
 
