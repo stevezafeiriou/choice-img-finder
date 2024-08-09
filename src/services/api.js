@@ -176,5 +176,7 @@ export const updateSubscription = (data) => api.put("/subscribe", data);
 export const getFirmwareData = () => api.get("/firmware");
 export const getFirmwareChangelog = () => api.get("/firmware/changelog");
 export const getTotalDevices = () => api.get("/devices/total");
-export const logoImage = process.env.REACT_APP_LOGO_URL;
-export const collectionCover = process.env.REACT_APP_COVER_URL;
+export const logoImage =
+	"https://stevezafeiriou.com/wp-content/uploads/2024/07/choice-logo.png";
+export const collectionCover =
+	"https://stevezafeiriou.com/wp-content/uploads/2024/06/newsletter-scaled.jpg";

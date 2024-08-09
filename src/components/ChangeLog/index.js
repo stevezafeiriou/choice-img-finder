@@ -11,6 +11,7 @@ import {
 	Loading,
 } from "./ChangeLogElements";
 import { getFirmwareChangelog } from "../../services/api"; // Import the function from api.js
+import loader from "../../assets/loader.svg";
 
 const ChangeLog = () => {
 	const [logs, setLogs] = useState([]);
@@ -42,7 +43,9 @@ const ChangeLog = () => {
 	return (
 		<TimelineContainer>
 			{loading ? (
-				<Loading>Fetching Data... Please wait</Loading>
+				<Loading>
+					<img src={loader} alt="loader-icon" />
+				</Loading>
 			) : error ? (
 				<Loading>Error: {error}</Loading>
 			) : (

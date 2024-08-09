@@ -13,6 +13,7 @@ import {
 	subscribeUser,
 	getRecentUnvalidatedImages,
 } from "../../services/api";
+import loader from "../../assets/loader.svg";
 
 const ImagePage = () => {
 	const [imageData, setImageData] = useState(null);
@@ -214,7 +215,9 @@ const ImagePage = () => {
 			{!showSubscriptionForm &&
 				imageData &&
 				(loadingImage ? (
-					<Loading>Loading Image.. Please wait.</Loading>
+					<Loading>
+						<img src={loader} alt="loader-icon" />
+					</Loading>
 				) : (
 					<ImageCard
 						imageData={imageData}

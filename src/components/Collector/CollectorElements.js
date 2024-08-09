@@ -188,7 +188,7 @@ export const Modal = styled(motion.div)`
 	z-index: 1000;
 
 	@media (min-width: 768px) {
-		width: 40%; /* Fill 40% of the page width */
+		width: 25%; /* Fill 40% of the page width */
 		height: 100%; /* Fill the full height */
 	}
 `;
@@ -317,5 +317,15 @@ export const ButtonWrap = styled.div`
 			width: 100%;
 			margin: 4px 0;
 		}
+	}
+`;
+
+export const Loading = styled.div`
+	color: white;
+	font-size: 0.758em;
+	max-width: 300px;
+	img {
+		width: 60px;
+		height: 60px;
 	}
 `;

@@ -3,7 +3,6 @@ import {
 	SubscriptionFormContainer,
 	Form,
 	ImageCardP,
-	LogoImg,
 } from "./ImagePageElements";
 
 const SubscriptionForm = ({ onSubmit }) => {

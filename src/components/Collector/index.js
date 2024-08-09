@@ -6,11 +6,13 @@ import {
 	CoverImage,
 	ProfileContainer,
 	ImagesGridContainer,
+	Loading,
 } from "./CollectorElements";
 import Profile from "./Profile";
 import ImageGrid from "./ImageGrid";
 import ImageModal from "./ImageModal";
 import { collectionCover } from "../../services/api";
+import loader from "../../assets/loader.svg";
 
 const Collector = () => {
 	const { email } = useParams();
@@ -92,7 +94,9 @@ const Collector = () => {
 				/>
 			</ProfileContainer>
 			{loading ? (
-				<p>Loading...</p>
+				<Loading>
+					<img src={loader} alt="loader-icon" />
+				</Loading>
 			) : error ? (
 				<p>{error}</p>
 			) : (

@@ -216,6 +216,10 @@ export const Loading = styled.div`
 	color: white;
 	font-size: 0.758em;
 	max-width: 300px;
+	img {
+		width: 60px;
+		height: 60px;
+	}
 `;
 
 export const ButtonWrap = styled.div`

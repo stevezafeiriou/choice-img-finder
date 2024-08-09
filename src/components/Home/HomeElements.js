@@ -53,6 +53,10 @@ export const InfoCard = styled.div`
 	width: 100%;
 	text-align: justify;
 
+	a {
+		text-decoration: none;
+	}
+
 	img {
 		width: 100%;
 		height: auto;
@@ -65,10 +69,11 @@ export const InfoCard = styled.div`
 
 	h2 {
 		background-color: transparent;
-		color: #fff;
+		color: black;
 		font-weight: 500;
 		margin: 10px 5px;
 		font-size: 1.2rem;
+		background-color: orange;
 	}
 
 	p {
