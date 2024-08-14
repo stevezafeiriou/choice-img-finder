@@ -131,14 +131,15 @@ export const deleteImageById = async (id, token) => {
 export const getAllDevices = async (token) => {
 	const url = `${apiBaseURL}/devices`;
 
-	const config = {
-		headers: {
-			Authorization: `Bearer ${token}`,
-		},
-	};
+	// const config = {
+	// 	headers: {
+	// 		Authorization: `Bearer ${token}`,
+	// 	},
+	// };
 
 	try {
-		const response = await axios.get(url, config);
+		// const response = await axios.get(url, config);
+		const response = await axios.get(url);
 		return response.data;
 	} catch (error) {
 		console.error("API Error:", error);

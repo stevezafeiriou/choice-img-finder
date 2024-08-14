@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export const HeaderNav = styled.div`
 	display: flex;
@@ -142,7 +143,13 @@ export const NavMenu = styled(Menu)`
 	}
 `;
 
-export const NavLink = styled.a`
+export const NavLink = styled(Link)`
+	color: #ddd;
+	&.active {
+		color: orange;
+	}
+`;
+export const NavLinkExt = styled.a`
 	color: #ddd;
 	&.active {
 		color: orange;

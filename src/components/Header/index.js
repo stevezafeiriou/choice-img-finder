@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { AiOutlineEnter } from "react-icons/ai";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -12,10 +12,12 @@ import {
 	MobileIcon,
 	NavMenu,
 	NavLink,
+	NavLinkExt,
 	EmailInputContainer,
 	EmailInputWrapper,
 } from "./HeaderElements";
 import { useAuth } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 	const { auth, logout, reloadInformation } = useAuth();
@@ -80,7 +82,7 @@ const Header = () => {
 		<>
 			<HeaderNav>
 				<Logo>
-					<a href="/">{logoText}</a>
+					<Link to="/">{logoText}</Link>
 				</Logo>
 				<MobileIcon onClick={toggleMenu}>
 					{isOpen ? <IoClose /> : <FaBars />}
@@ -89,7 +91,7 @@ const Header = () => {
 					<ul>
 						<li>
 							<NavLink
-								href="/"
+								to="/"
 								className={location.pathname === "/" ? "active" : ""}
 							>
 								Introduction
@@ -97,7 +99,7 @@ const Header = () => {
 						</li>
 						<li>
 							<NavLink
-								href="/finder"
+								to="/finder"
 								className={location.pathname === "/finder" ? "active" : ""}
 							>
 								Image Finder
@@ -105,7 +107,7 @@ const Header = () => {
 						</li>
 						<li>
 							<NavLink
-								href="/change-log"
+								to="/change-log"
 								className={location.pathname === "/change-log" ? "active" : ""}
 							>
 								Change Log
@@ -113,7 +115,7 @@ const Header = () => {
 						</li>
 						<li>
 							<NavLink
-								href="#"
+								to="#"
 								onClick={handleCollectorClick}
 								className={
 									location.pathname.startsWith("/collector/") ? "active" : ""
@@ -123,9 +125,12 @@ const Header = () => {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink href="https://stevezafeiriou.com/links/" target="_blank">
+							<NavLinkExt
+								href="https://stevezafeiriou.com/links/"
+								target="_blank"
+							>
 								Arist Info
-							</NavLink>
+							</NavLinkExt>
 						</li>
 						{auth !== null ? (
 							<>

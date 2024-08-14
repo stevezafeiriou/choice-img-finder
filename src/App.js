@@ -9,6 +9,7 @@ import ImagePageRender from "./pages/ImagePageRender";
 import ChangeLogRender from "./pages/ChangeLogRender";
 import ProtectedDashboardRender from "./pages/ProtectedDashboardRender";
 import CollectorPageRender from "./pages/CollectorPageRender";
+import EditionsPageRender from "./pages/EditionsPageRender";
 
 const App = () => {
 	return (
@@ -28,6 +29,7 @@ const App = () => {
 						<Route path="/change-log" element={<ChangeLogRender />} />
 						<Route path="/dashboard" element={<ProtectedDashboardRender />} />
 						<Route path="/collector/:email" element={<CollectorPageRender />} />
+						<Route path="/editions" element={<EditionsPageRender />} />
 					</Routes>
 				</BrowserRouter>
 			</AuthProvider>

@@ -3,6 +3,7 @@ import { SubscriptionFormContainer, Form, LogoImg } from "./ImagePageElements"; 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getRecentUnvalidatedImages } from "../../services/api"; // Import the function from api.js
+import { Link } from "react-router-dom";
 
 const FindGenerationsById = ({ onSubmit, logo }) => {
 	const [imageIdInput, setImageIdInput] = useState("");
@@ -88,6 +89,7 @@ const FindGenerationsById = ({ onSubmit, logo }) => {
 					Find Image
 				</button>
 			</Form>
+			<Link to="/editions">Find your COA</Link>
 		</SubscriptionFormContainer>
 	);
 };
