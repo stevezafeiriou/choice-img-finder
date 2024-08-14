@@ -13,7 +13,7 @@ export const EditionContainer = styled.div`
 
 	@media (max-width: 768px) {
 		padding: 15px;
-		justify-content: flex-start; /* Align items to the top */
+		justify-content: center; /* Align items to the top */
 	}
 `;
 
