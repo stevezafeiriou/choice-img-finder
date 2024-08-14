@@ -26,7 +26,11 @@ const Editions = () => {
 
 	const handleScan = (data) => {
 		if (data) {
-			setChipId(data);
+			if (typeof data === "object" && data.text) {
+				setChipId(data.text);
+			} else {
+				setChipId(data);
+			}
 			setIsScannerOpen(false); // Close the scanner once data is scanned
 			toast.success("Chip ID scanned successfully!");
 		}
@@ -133,6 +137,7 @@ const Editions = () => {
 						{isScannerOpen && (
 							<QrScanner
 								delay={300}
+								facingMode={"environment"} // Use back camera
 								onError={handleError}
 								onScan={handleScan}
 								style={{ width: "100%" }}
