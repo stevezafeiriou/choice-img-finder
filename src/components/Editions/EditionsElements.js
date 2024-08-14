@@ -171,7 +171,8 @@ export const ButtonWrap = styled.div`
 	max-width: 280px;
 	align-items: center; /* Center buttons horizontally */
 
-	button {
+	button,
+	a {
 		width: 100%; /* Set a width for the buttons */
 		border: 1px solid #dddddd;
 		padding: 10px 15px;
@@ -181,6 +182,7 @@ export const ButtonWrap = styled.div`
 		transition: all 0.25s ease-in-out;
 		background-color: #171616;
 		color: #dddddd;
+		text-decoration: none;
 
 		&:hover {
 			background-color: ${(props) => (props.disabled ? "#171616" : "#2b2e2c")};
@@ -199,7 +201,8 @@ export const ButtonWrap = styled.div`
 	}
 
 	@media (max-width: 768px) {
-		button {
+		button,
+		a {
 			width: 100%; /* Make buttons full width on mobile */
 			margin: 4px 0;
 		}

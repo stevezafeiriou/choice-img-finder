@@ -12,6 +12,7 @@ import { getAllDevices } from "../../services/api";
 import { toast } from "react-toastify";
 import QrScanner from "react-qr-scanner";
 import { BsQrCodeScan } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const Editions = () => {
 	const [chipId, setChipId] = useState("");
@@ -19,6 +20,7 @@ const Editions = () => {
 	const [loading, setLoading] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
 	const [isScannerOpen, setIsScannerOpen] = useState(false);
+	const navigate = useNavigate();
 
 	const handleInputChange = (e) => {
 		setChipId(e.target.value);
@@ -99,6 +101,15 @@ const Editions = () => {
 		setIsScannerOpen(true);
 	};
 
+	const handleTweet = (edition) => {
+		const tweetMsg = `
+			https://twitter.com/intent/post?text=I%20am%20the%20owner%20of%20an%20original%20%22Choice%22%20sculpture%2C%20"${edition}%20Edition"%2C%20created%20by%20the%20artist%20%40steve_zafeiriou.%0A%0A*This%20message%20was%20automatically%20generated%20by%20the%20%22Choice%20Image%20Finder%22%20Validation%20App.&url=https%3A%2F%2Fstevezafeiriou.com%2Fworks%2Fchoice
+		
+		`;
+
+		return tweetMsg;
+	};
+
 	return (
 		<EditionContainer>
 			<EditionCardContainer>
@@ -146,7 +157,8 @@ const Editions = () => {
 					</>
 				) : (
 					<ButtonWrap>
-						<button onClick={handleDownload}>View Certificate</button>
+						<button onClick={handleDownload}>View COA</button>
+						<a href={handleTweet(edition)}>Tweet</a>
 					</ButtonWrap>
 				)}
 				{errorMessage && (
