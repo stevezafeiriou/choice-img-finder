@@ -61,7 +61,9 @@ const ImagePage = () => {
 	};
 
 	const handleSave = async () => {
+		console.log("Save button clicked");
 		if (await handleSubscriptionAndValidation("save")) {
+			console.log("Subscription and validation successful, performing save");
 			performSave();
 		} else {
 			toast.error("Save action could not be performed due to previous errors.");
@@ -79,12 +81,15 @@ const ImagePage = () => {
 	};
 
 	const handleSubscriptionAndValidation = async (action) => {
+		console.log(`Handling subscription and validation for action: ${action}`);
 		const subscriptionInfo = JSON.parse(localStorage.getItem("subscribed"));
 
 		if (subscriptionInfo && subscriptionInfo.subscribed) {
+			console.log("User is subscribed, proceeding to validate image");
 			const validationSuccessful = await validateImageAndProceed(action);
 			return validationSuccessful;
 		} else {
+			console.log("User is not subscribed, showing subscription form");
 			setPendingAction(action);
 			setShowSubscriptionForm(true);
 			return false;
@@ -93,13 +98,24 @@ const ImagePage = () => {
 
 	const validateImageAndProceed = async (action) => {
 		try {
-			if (imageData && imageData.id) {
-				const validationSuccessful = await validateImage(imageData.id);
+			const subscriptionInfo = JSON.parse(localStorage.getItem("subscribed"));
+			if (
+				imageData &&
+				imageData.id &&
+				subscriptionInfo &&
+				subscriptionInfo.email
+			) {
+				console.log("Validating image with ID:", imageData.id);
+				const validationSuccessful = await validateImage(
+					imageData.id,
+					subscriptionInfo.email
+				);
+				console.log("Validation result:", validationSuccessful);
 				if (validationSuccessful) {
 					return true;
 				}
 			} else {
-				throw new Error("Image data or ID is missing");
+				throw new Error("Image data or ID or subscription email is missing");
 			}
 		} catch (error) {
 			console.error("Error performing validation:", error);
@@ -113,6 +129,7 @@ const ImagePage = () => {
 	};
 
 	const handleSubmitSubscription = async (email, validatedIds = []) => {
+		console.log("Submitting subscription with validatedIds:", validatedIds);
 		try {
 			const response = await subscribeUser({ email, ids: validatedIds });
 

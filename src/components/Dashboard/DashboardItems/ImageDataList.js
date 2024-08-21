@@ -59,7 +59,16 @@ const ImageDataList = () => {
 	};
 
 	const handleValidate = (id) => {
-		const validatePromise = () => validateImage(id);
+		const email = prompt(
+			"Please enter the email of the user who validated this image:"
+		);
+
+		if (!email) {
+			toast.error("Validation canceled. No email provided.");
+			return;
+		}
+
+		const validatePromise = () => validateImage(id, email);
 
 		toast.promise(validatePromise(), {
 			pending: `Validating image ID: ${id}...`,

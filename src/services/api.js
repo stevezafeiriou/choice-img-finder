@@ -14,162 +14,119 @@ const authApi = axios.create({
 });
 
 export const updateDonationStatus = async (email, token) => {
-	const url = `${apiBaseURL}/subscribe/donation/update`;
-
-	const config = {
-		headers: {
-			Authorization: `Bearer ${token}`,
-		},
-	};
-
 	try {
-		const response = await api.post(url, { email }, config);
-		return response.data;
-	} catch (error) {
-		console.error("API Error:", error);
-		throw error.response ? error.response.data : error;
-	}
-};
-
-// Fetch collected images for a user
-export const getCollectedImages = async (email) => {
-	try {
-		const url = `${apiBaseURL}/collected`;
-		const response = await api.get(url, {
-			params: { email },
-		});
-
-		return response.data;
-	} catch (error) {
-		throw error.response ? error.response.data : error;
-	}
-};
-
-// Get Sub List
-export const getSubscriberList = async (token) => {
-	const url = `/subscribe/list`;
-
-	const config = {
-		headers: {
-			Authorization: `Bearer ${token}`,
-		},
-	};
-
-	try {
-		const response = await api.get(url, config); // Use api instance
-		return response.data;
-	} catch (error) {
-		console.error("API Error:", error);
-		throw error.response ? error.response.data : error;
-	}
-};
-
-// Firmware upload function with JWT token
-export const uploadNewFirmwareVersion = async (formData, token) => {
-	const url = `${apiBaseURL}/firmware/upload`;
-
-	const config = {
-		headers: {
-			"Content-Type": "multipart/form-data",
-			Authorization: `Bearer ${token}`,
-		},
-	};
-
-	try {
-		const response = await axios.post(url, formData, config);
-		return response.data;
-	} catch (error) {
-		console.error("API Error:", error);
-		throw error.response ? error.response.data : error;
-	}
-};
-
-// JWT Authentication function
-export const getJwtForUser = async (username, password) => {
-	const config = {
-		headers: {
-			"Content-Type": "application/json",
-		},
-	};
-
-	try {
-		const response = await authApi.post(
-			"/jwt-auth/v1/token",
+		const response = await api.post(
+			"/subscribe/donation/update",
+			{ email },
 			{
-				username,
-				password,
-			},
-			config
+				headers: { Authorization: `Bearer ${token}` },
+			}
 		);
 		return response.data;
 	} catch (error) {
 		console.error("API Error:", error);
-		throw error.response ? error.response.data : error;
+		throw error.response ? error.response.data : error.message;
 	}
 };
 
-// API functions with authentication
+export const getCollectedImages = async (email) => {
+	try {
+		const response = await api.get("/collected", { params: { email } });
+		return response.data;
+	} catch (error) {
+		console.error("API Error:", error);
+		throw error.response ? error.response.data : error.message;
+	}
+};
+
+export const getSubscriberList = async (token) => {
+	try {
+		const response = await api.get("/subscribe/list", {
+			headers: { Authorization: `Bearer ${token}` },
+		});
+		return response.data;
+	} catch (error) {
+		console.error("API Error:", error);
+		throw error.response ? error.response.data : error.message;
+	}
+};
+
+export const uploadNewFirmwareVersion = async (formData, token) => {
+	try {
+		const response = await api.post("/firmware/upload", formData, {
+			headers: {
+				"Content-Type": "multipart/form-data",
+				Authorization: `Bearer ${token}`,
+			},
+		});
+		return response.data;
+	} catch (error) {
+		console.error("API Error:", error);
+		throw error.response ? error.response.data : error.message;
+	}
+};
+
+export const getJwtForUser = async (username, password) => {
+	try {
+		const response = await authApi.post("/jwt-auth/v1/token", {
+			username,
+			password,
+		});
+		return response.data;
+	} catch (error) {
+		console.error("API Error:", error);
+		throw error.response ? error.response.data : error.message;
+	}
+};
+
 export const deleteImageById = async (id, token) => {
-	const url = `/image-data/${id}`;
-
-	const config = {
-		headers: {
-			Authorization: `Bearer ${token}`,
-		},
-	};
-
 	try {
-		const response = await api.delete(url, config); // Use api instance
+		const response = await api.delete(`/image-data/${id}`, {
+			headers: { Authorization: `Bearer ${token}` },
+		});
 		return response.data;
 	} catch (error) {
 		console.error("API Error:", error);
-		throw error.response ? error.response.data : error;
+		throw error.response ? error.response.data : error.message;
 	}
 };
 
-// New functions for registered devices endpoint
-export const getAllDevices = async (token) => {
-	const url = `${apiBaseURL}/devices`;
-
-	// const config = {
-	// 	headers: {
-	// 		Authorization: `Bearer ${token}`,
-	// 	},
-	// };
-
+export const getAllDevices = async () => {
 	try {
-		// const response = await axios.get(url, config);
-		const response = await axios.get(url);
+		const response = await api.get("/devices");
 		return response.data;
 	} catch (error) {
 		console.error("API Error:", error);
-		throw error.response ? error.response.data : error;
+		throw error.response ? error.response.data : error.message;
 	}
 };
 
 export const registerNewDevice = async (deviceData, token) => {
-	const url = `${apiBaseURL}/devices`;
-
-	const config = {
-		headers: {
-			"Content-Type": "application/json",
-			Authorization: `Bearer ${token}`,
-		},
-	};
-
 	try {
-		const response = await axios.post(url, deviceData, config);
+		const response = await api.post("/devices", deviceData, {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${token}`,
+			},
+		});
 		return response.data;
 	} catch (error) {
 		console.error("API Error:", error);
-		throw error.response ? error.response.data : error;
+		throw error.response ? error.response.data : error.message;
 	}
 };
 
-// Other API functions without authentication
 export const getAllImages = () => api.get("/image-data");
 export const getImageById = (id) => api.get(`/image-data/${id}`);
-export const validateImage = (id) => api.post("/image-data/validate", { id });
+export const validateImage = async (id, email) => {
+	try {
+		const response = await api.post("/image-data/validate", { id, email });
+		return response.data;
+	} catch (error) {
+		console.error("API Error during validation:", error);
+		throw error.response ? error.response.data : error.message;
+	}
+};
 export const getRecentUnvalidatedImages = () =>
 	api.get("/recent-unvalidated-images");
 export const subscribeUser = (data) => api.post("/subscribe", data);
@@ -177,6 +134,7 @@ export const updateSubscription = (data) => api.put("/subscribe", data);
 export const getFirmwareData = () => api.get("/firmware");
 export const getFirmwareChangelog = () => api.get("/firmware/changelog");
 export const getTotalDevices = () => api.get("/devices/total");
+
 export const logoImage =
 	"https://stevezafeiriou.com/wp-content/uploads/2024/07/choice-logo.png";
 export const collectionCover =

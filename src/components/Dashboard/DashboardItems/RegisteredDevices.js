@@ -16,16 +16,14 @@ const RegisteredDevices = () => {
 	const token = auth.token;
 
 	useEffect(() => {
-		if (token) {
-			getAllDevices(token)
-				.then((response) => {
-					setDevices(response);
-				})
-				.catch((error) => {
-					console.error("Error fetching devices list:", error);
-				});
-		}
-	}, [token]);
+		getAllDevices()
+			.then((response) => {
+				setDevices(response);
+			})
+			.catch((error) => {
+				console.error("Error fetching devices list:", error);
+			});
+	}, []);
 
 	return (
 		<Container>
