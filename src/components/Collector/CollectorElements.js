@@ -181,7 +181,7 @@ export const Modal = styled(motion.div)`
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.7); /* Darker background */
+
 	display: flex;
 	align-items: center;
 	justify-content: flex-start; /* Align content to the start */
