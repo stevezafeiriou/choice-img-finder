@@ -47,7 +47,7 @@ export const getCollectedImages = async (email) => {
 
 // Get Sub List
 export const getSubscriberList = async (token) => {
-	const url = `${apiBaseURL}/subscribe/list`;
+	const url = `/subscribe/list`;
 
 	const config = {
 		headers: {
@@ -56,7 +56,7 @@ export const getSubscriberList = async (token) => {
 	};
 
 	try {
-		const response = await axios.get(url, config);
+		const response = await api.get(url, config); // Use api instance
 		return response.data;
 	} catch (error) {
 		console.error("API Error:", error);
@@ -110,7 +110,7 @@ export const getJwtForUser = async (username, password) => {
 
 // API functions with authentication
 export const deleteImageById = async (id, token) => {
-	const url = `${apiBaseURL}/image-data/${id}`;
+	const url = `/image-data/${id}`;
 
 	const config = {
 		headers: {
@@ -119,7 +119,7 @@ export const deleteImageById = async (id, token) => {
 	};
 
 	try {
-		const response = await axios.delete(url, config);
+		const response = await api.delete(url, config); // Use api instance
 		return response.data;
 	} catch (error) {
 		console.error("API Error:", error);
