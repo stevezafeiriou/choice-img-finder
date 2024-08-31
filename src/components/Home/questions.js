@@ -1,140 +1,146 @@
 export const questionsData = [
 	{
 		question:
-			"You find yourself at the beginning of your journey. Every choice leads to evolution. Do you want to explore how small choices can lead to significant changes?",
+			"Welcome! You're about to start an adventure where every choice matters. Ready to see how small decisions can shape your journey?",
 		voiceover: "question1.mp3",
 		answers: [
-			{ text: "Yes, I want to explore.", nextQuestion: 1 },
-			{ text: "No, I'm not ready yet.", nextQuestion: 2 },
+			{ text: "Yes, let's go!", nextQuestion: 1 },
+			{ text: "I'm curious but a bit unsure.", nextQuestion: 2 },
 		],
 	},
 	{
 		question:
-			"As you start your exploration, you notice a small creature adapting to its environment by changing its color. How do you think this relates to human behavior?",
+			"As you begin, you see a little creature changing its color to match its surroundings. What do you think this says about how people adapt?",
 		voiceover: "question2.mp3",
 		answers: [
 			{
-				text: "Like the creature, we adapt to our surroundings over time.",
+				text: "People change too, depending on who they're with and where they are.",
 				nextQuestion: 3,
 			},
 			{
-				text: "It's just a survival mechanism, unrelated to human behavior.",
+				text: "It's just about survival—people do what they have to do.",
 				nextQuestion: 4,
 			},
 		],
 	},
 	{
 		question:
-			"You encounter an ancient tree, where each leaf represents a choice made by someone. Some leaves are vibrant, while others are withering. What do you think causes these differences?",
+			"You find an old tree where each leaf stands for a choice someone made. Some leaves look healthy and bright, others are fading. What do you think makes the difference?",
 		voiceover: "question3.mp3",
 		answers: [
 			{
-				text: "The vibrancy represents positive choices that led to growth.",
+				text: "Healthy leaves show choices that helped someone grow.",
 				nextQuestion: 5,
 			},
 			{
-				text: "The withering leaves show the impact of negative or neglected choices.",
+				text: "Fading leaves show choices that maybe weren't the best.",
 				nextQuestion: 5,
 			},
 		],
 	},
 	{
 		question:
-			"As you continue, you find a mirror that shows how you might evolve based on your choices. The reflection changes as you make different decisions. How do you think your current choices are shaping your future?",
+			"Further along, you see a mirror that changes based on the choices you make. How do you think your decisions are affecting your future?",
 		voiceover: "question4.mp3",
 		answers: [
 			{
-				text: "My choices are actively shaping who I am and who I will become.",
+				text: "My choices are definitely shaping who I am and who I’ll become.",
 				nextQuestion: 6,
 			},
 			{
-				text: "My future is fixed, regardless of my choices.",
+				text: "I think some things are just meant to be, no matter what I choose.",
 				nextQuestion: 6,
 			},
 		],
 	},
 	{
 		question:
-			"You come across a device that can generate a piece of digital art based on your movements. The artwork evolves as you interact with it. What do you think this symbolizes?",
+			"You come across a cool device that makes digital art based on how you move. The art keeps changing as you interact with it. What do you think this means?",
 		voiceover: "question5.mp3",
 		answers: [
 			{
-				text: "It symbolizes how our actions create and shape our reality.",
+				text: "It shows how our actions create new things around us.",
 				nextQuestion: 7,
 			},
 			{
-				text: "It just creates random patterns with no real meaning.",
+				text: "It's just random, like life sometimes.",
 				nextQuestion: 8,
 			},
 		],
 	},
 	{
 		question:
-			"As you explore further, you reach a fork in the road. One path is brightly lit but seems familiar, while the other is dark and mysterious. Which path do you choose?",
+			"Now you're at a fork in the road. One path is bright and familiar, the other is dark and mysterious. Which path do you take?",
 		voiceover: "question6.mp3",
 		answers: [
 			{
-				text: "The brightly lit path, I prefer what I know.",
+				text: "I'll take the bright path—I like to stick with what I know.",
 				nextQuestion: 9,
 			},
 			{
-				text: "The dark path, I’m curious about the unknown.",
+				text: "I'll go down the dark path—I'm up for an adventure.",
 				nextQuestion: 10,
 			},
 		],
 	},
 	{
 		question:
-			"At the end of the dark path, you find a locked chest with no key in sight. Do you search for the key or try to force the chest open?",
+			"At the end of the dark path, you find a locked chest but no key. Do you search for the key, or try to force the chest open?",
 		voiceover: "question7.mp3",
 		answers: [
 			{
-				text: "Search for the key, patience will pay off.",
+				text: "I'll look for the key—patience might be worth it.",
 				nextQuestion: 11,
 			},
 			{
-				text: "Force the chest open, I don’t have time to waste.",
+				text: "I'll force it open—I don't like waiting around.",
 				nextQuestion: 11,
 			},
 		],
 	},
 	{
 		question:
-			"You find a journal that documents how small, consistent changes led to a significant evolution in an environment over time. How does this relate to your everyday life?",
+			"You discover a journal that shows how tiny changes over time made a big difference. How does this connect to your life?",
 		voiceover: "question8.mp3",
 		answers: [
 			{
-				text: "It shows that small, consistent actions can lead to major life changes.",
+				text: "It reminds me that small steps can lead to big results.",
 				nextQuestion: 12,
 			},
 			{
-				text: "It’s interesting, but I don’t think it applies to my life.",
+				text: "Interesting idea, but I think big changes need big actions.",
 				nextQuestion: 12,
 			},
 		],
 	},
 	{
 		question:
-			"As you approach the end of your journey, you notice the environment around you has changed based on the choices you made. What have you learned about the power of choice?",
+			"As you near the end, you notice how the world around you has changed based on your choices. What have you learned about making decisions?",
 		voiceover: "question9.mp3",
 		answers: [
 			{
-				text: "I’ve learned that every choice, no matter how small, impacts my reality.",
+				text: "I've learned that every choice, even the small ones, matter.",
 				nextQuestion: 13,
 			},
 			{
-				text: "I still believe that some choices don’t matter.",
+				text: "Some choices are important, but others not so much.",
 				nextQuestion: 13,
 			},
 		],
 	},
 	{
 		question:
-			"The journey concludes at a crossroads, where one path leads back to where you started, and the other leads to an unknown future. What do you choose?",
+			"Your journey ends at a crossroads. One path takes you back to the start, the other leads to an unknown future. Which do you choose?",
 		voiceover: "question10.mp3",
 		answers: [
-			{ text: "Return to the start, with new understanding.", nextQuestion: 0 },
-			{ text: "Venture into the unknown future.", nextQuestion: 0 },
+			{
+				text: "I'll go back to the start, but with new insights.",
+				nextQuestion: 0,
+			},
+			{
+				text: "I'll head into the unknown—who knows what’s next?",
+				nextQuestion: 0,
+			},
 		],
 	},
 ];
