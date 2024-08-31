@@ -25,6 +25,7 @@ const TotalImages = lazy(() => import("./DashboardItems/TotalImages"));
 const UpdateFirmware = lazy(() => import("./DashboardItems/UpdateFirmware"));
 const DashboardFooter = lazy(() => import("./DashboardItems/DashboardFooter"));
 const Instructions = lazy(() => import("./DashboardItems/Instructions"));
+const SurveyResponses = lazy(() => import("./DashboardItems/SurveyResponses"));
 
 const Dashboard = () => {
 	const [openInfo, setOpenInfo] = useState(false);
@@ -51,6 +52,12 @@ const Dashboard = () => {
 					</Card>
 					<Card>
 						<TotalSubscribers />
+					</Card>
+				</Row>
+
+				<Row opened={true}>
+					<Card>
+						<SurveyResponses />
 					</Card>
 				</Row>
 

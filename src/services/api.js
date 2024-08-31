@@ -116,6 +116,20 @@ export const registerNewDevice = async (deviceData, token) => {
 	}
 };
 
+export const getSurveyResponses = async (token) => {
+	try {
+		const response = await api.get("/get-surveys", {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		});
+		return response.data;
+	} catch (error) {
+		console.error("API Error:", error);
+		throw error.response ? error.response.data : error.message;
+	}
+};
+
 export const getAllImages = () => api.get("/image-data");
 export const getImageById = (id) => api.get(`/image-data/${id}`);
 export const validateImage = async (id, email) => {
@@ -134,6 +148,18 @@ export const updateSubscription = (data) => api.put("/subscribe", data);
 export const getFirmwareData = () => api.get("/firmware");
 export const getFirmwareChangelog = () => api.get("/firmware/changelog");
 export const getTotalDevices = () => api.get("/devices/total");
+export const submitSurvey = async (answers, uuid) => {
+	try {
+		const response = await api.post("/survey-responses", {
+			uuid, // Ensure uuid is sent correctly
+			answers, // Ensure answers array is sent correctly
+		});
+		return response.data;
+	} catch (error) {
+		console.error("API Error:", error);
+		throw error.response ? error.response.data : error.message;
+	}
+};
 
 export const logoImage =
 	"https://stevezafeiriou.com/wp-content/uploads/2024/07/choice-logo.png";

@@ -282,3 +282,49 @@ export const DocumentationContainer = styled.div`
 		}
 	}
 `;
+
+export const NoticeContainer = styled.div`
+	margin-top: 20px;
+	text-align: center;
+	color: #dddddd;
+	background-color: rgba(0, 0, 0, 0.8);
+	padding: 15px;
+	border-radius: 10px;
+
+	span {
+		padding: 0 3px;
+		background-color: orange;
+		color: black;
+		cursor: pointer;
+		transition: 0.2s all ease-in-out;
+
+		&:hover {
+			background-color: #fefefe;
+		}
+	}
+
+	.flex-wrap {
+		display: flex;
+		justify-content: center;
+		margin-top: 20px;
+		button {
+			margin: 5px;
+		}
+	}
+`;
+
+export const NoticeButton = styled.button`
+	margin-top: 10px;
+	padding: 10px 20px;
+	background-color: #171616;
+	color: #dddddd;
+	border: 1px solid #dddddd;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		background-color: #2b2e2c;
+		color: white;
+		border: 1px solid #171616;
+	}
+`;
