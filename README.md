@@ -1,4 +1,4 @@
-# Choice Installation: Image Finder (React.js App)
+# Choice Extention (Installation): Image Finder (React.js App)
 
 ![Choice Cover](./images/homepage.png)
 
