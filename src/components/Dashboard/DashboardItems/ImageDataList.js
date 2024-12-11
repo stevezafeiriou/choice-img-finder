@@ -166,7 +166,7 @@ const ImageDataList = () => {
 							</TableCell>
 							<TableCell>
 								<a
-									href={`https://choice.stevezafeiriou.com/finder?id=${image.id}`}
+									href={`https://choice.saphirelabs.com/finder?id=${image.id}`}
 									target="_blank"
 									rel="noreferrer"
 								>
